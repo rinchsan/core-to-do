@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="CoreToDo_for_Qiita" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TE9-ta-w8B">
+                                <rect key="frame" x="16" y="20" width="343" height="627"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TaskCell" id="mQN-1y-SI7" customClass="TaskTableViewCell" customModule="CoreToDo_for_Qiita" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="343" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mQN-1y-SI7" id="UJI-7T-Jfj">
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XxJ-Uz-f9c">
+                                                    <rect key="frame" x="8" y="11" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="XxJ-Uz-f9c" firstAttribute="centerY" secondItem="UJI-7T-Jfj" secondAttribute="centerY" id="XWh-sg-scr"/>
+                                                <constraint firstItem="XxJ-Uz-f9c" firstAttribute="leading" secondItem="UJI-7T-Jfj" secondAttribute="leadingMargin" id="qXS-f6-Bn3"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="taskLabel" destination="XxJ-Uz-f9c" id="Loj-Zk-src"/>
+                                            <segue destination="zrB-ma-tjN" kind="show" identifier="SegueEditTaskViewController" id="lIZ-Rl-WAt"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eIv-bB-nMl">
+                                <rect key="frame" x="275" y="567" width="70" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="ZAd-h3-ruq"/>
+                                    <constraint firstAttribute="height" constant="70" id="nvi-8P-bgo"/>
+                                </constraints>
+                                <state key="normal" image="plusButton"/>
+                                <connections>
+                                    <segue destination="zrB-ma-tjN" kind="show" identifier="SegueEditTaskViewController" id="oUl-A1-U3u"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.99182273649999997" blue="0.71245613019999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="TE9-ta-w8B" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="9ox-Hf-ctp"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="TE9-ta-w8B" secondAttribute="bottom" constant="20" id="FK6-ut-OTn"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="eIv-bB-nMl" secondAttribute="bottom" constant="30" id="JrI-EV-76f"/>
+                            <constraint firstItem="TE9-ta-w8B" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="QxN-hi-Xu5"/>
+                            <constraint firstAttribute="trailing" secondItem="eIv-bB-nMl" secondAttribute="trailing" constant="30" id="fF7-DP-iJJ"/>
+                            <constraint firstItem="TE9-ta-w8B" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="fFS-xU-uob"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="taskTableView" destination="TE9-ta-w8B" id="XzC-ca-E6B"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+        <!--Add Task View Controller-->
+        <scene sceneID="GMP-ru-Xwa">
+            <objects>
+                <viewController id="zrB-ma-tjN" customClass="AddTaskViewController" customModule="CoreToDo_for_Qiita" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ef1-Ua-sDq"/>
+                        <viewControllerLayoutGuide type="bottom" id="6pM-1G-Kav"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="BuY-iv-fW0">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add New Task" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qxe-Yb-uIn">
+                                <rect key="frame" x="16" y="28" width="343" height="40"/>
+                                <color key="backgroundColor" red="1" green="0.84183681420000001" blue="0.001031347811" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="RoL-eR-X7c"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <color key="textColor" red="0.60000002384185791" green="0.40000000596046448" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zYA-eq-Jey">
+                                <rect key="frame" x="324" y="33" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="3MO-lc-R2D"/>
+                                    <constraint firstAttribute="height" constant="30" id="Fs7-Uz-TFr"/>
+                                </constraints>
+                                <state key="normal" image="cancelButton"/>
+                                <connections>
+                                    <action selector="cancelButtonTapped:" destination="zrB-ma-tjN" eventType="touchUpInside" id="G7n-DX-2ZU"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter New Task" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="x8a-CC-pPf">
+                                <rect key="frame" x="16" y="88" width="343" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="rya-0K-2X6">
+                                <rect key="frame" x="16" y="128" width="343" height="29"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <segments>
+                                    <segment title="ToDo"/>
+                                    <segment title="Shopping"/>
+                                    <segment title="Assignment"/>
+                                </segments>
+                                <color key="tintColor" red="0.93674510720000004" green="0.46438953360000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="categoryChosen:" destination="zrB-ma-tjN" eventType="valueChanged" id="1lT-P6-tnL"/>
+                                </connections>
+                            </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lbc-fi-qEZ">
+                                <rect key="frame" x="274" y="171" width="70" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="NdW-qv-Ga0"/>
+                                    <constraint firstAttribute="height" constant="70" id="oCI-zJ-cAC"/>
+                                </constraints>
+                                <state key="normal" image="plusButton"/>
+                                <connections>
+                                    <action selector="plusButtonTapped:" destination="zrB-ma-tjN" eventType="touchUpInside" id="6yZ-Sk-Y7D"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.99182273649999997" blue="0.71245613019999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="qxe-Yb-uIn" firstAttribute="top" secondItem="Ef1-Ua-sDq" secondAttribute="bottom" constant="8" id="1sR-8Z-fcS"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="qxe-Yb-uIn" secondAttribute="trailing" id="8eC-ZS-p4K"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="zYA-eq-Jey" secondAttribute="trailing" constant="5" id="BBV-4e-LCZ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="x8a-CC-pPf" secondAttribute="trailing" id="SXz-hW-ESc"/>
+                            <constraint firstItem="rya-0K-2X6" firstAttribute="leading" secondItem="BuY-iv-fW0" secondAttribute="leadingMargin" id="W77-og-inq"/>
+                            <constraint firstItem="x8a-CC-pPf" firstAttribute="leading" secondItem="BuY-iv-fW0" secondAttribute="leadingMargin" id="a60-b9-AXM"/>
+                            <constraint firstItem="rya-0K-2X6" firstAttribute="top" secondItem="x8a-CC-pPf" secondAttribute="bottom" constant="10" id="dME-nk-TES"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="lbc-fi-qEZ" secondAttribute="trailing" constant="15" id="dWu-bO-phw"/>
+                            <constraint firstItem="qxe-Yb-uIn" firstAttribute="leading" secondItem="BuY-iv-fW0" secondAttribute="leadingMargin" id="evW-IQ-T8M"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="rya-0K-2X6" secondAttribute="trailing" id="fbb-xv-Inr"/>
+                            <constraint firstItem="lbc-fi-qEZ" firstAttribute="top" secondItem="rya-0K-2X6" secondAttribute="bottom" constant="15" id="skf-as-FQI"/>
+                            <constraint firstItem="zYA-eq-Jey" firstAttribute="top" secondItem="Ef1-Ua-sDq" secondAttribute="bottom" constant="13" id="vpG-ao-S5G"/>
+                            <constraint firstItem="x8a-CC-pPf" firstAttribute="top" secondItem="qxe-Yb-uIn" secondAttribute="bottom" constant="20" id="wdQ-Ff-cpk"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="categorySegmentedControl" destination="rya-0K-2X6" id="58r-aJ-cZ9"/>
+                        <outlet property="taskTextField" destination="x8a-CC-pPf" id="eFc-tI-cn9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ymz-tn-q15" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="889" y="54"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="cancelButton" width="256" height="256"/>
+        <image name="plusButton" width="256" height="256"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="lIZ-Rl-WAt"/>
+    </inferredMetricsTieBreakers>
+</document>
