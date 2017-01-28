@@ -7,3 +7,4 @@ iOSアプリ開発の練習として作成したToDoアプリです。
 AutoLayoutを使用しています。
 ## 作り方
 作り方の手順をQiitaで公開しています。
+http://qiita.com/MasayaHayashi724/items/0d27f4abf7b14c72107f
