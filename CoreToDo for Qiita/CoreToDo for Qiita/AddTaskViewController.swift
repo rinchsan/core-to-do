@@ -32,14 +32,9 @@ class AddTaskViewController: UIViewController {
         if let task = task {
             taskTextField.text = task.name
             taskCategory = task.category!
-            switch task.category! {
-            case "ToDo":
-                categorySegmentedControl.selectedSegmentIndex = 0
-            case "Shopping":
-                categorySegmentedControl.selectedSegmentIndex = 1
-            case "Assignment":
-                categorySegmentedControl.selectedSegmentIndex = 2
-            default:
+            if let taskCategoryIndex = taskCategories.index(of: task.category!) {
+                categorySegmentedControl.selectedSegmentIndex = taskCategoryIndex
+            } else {
                 categorySegmentedControl.selectedSegmentIndex = 0
             }
         }
