@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-// MARK: - Properties
+// MARK: - Global Properties
 
 let taskCategories:[String] = ["ToDo", "Shopping", "Assignment"]
 
