@@ -9,6 +9,12 @@
 import UIKit
 import CoreData
 
+// MARK: - Properties
+
+let taskCategories:[String] = ["ToDo", "Shopping", "Assignment"]
+
+// MARK: - class ViewController
+
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     // MARK: - Properties
@@ -23,7 +29,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     var tasks:[Task] = []
     var tasksToShow:[String:[String]] = ["ToDo":[], "Shopping":[], "Assignment":[]]
-    let taskCategories:[String] = ["ToDo", "Shopping", "Assignment"]
     
     // MARK: - View Life Cycle
     
