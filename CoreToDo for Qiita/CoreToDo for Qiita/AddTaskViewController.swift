@@ -49,16 +49,7 @@ class AddTaskViewController: UIViewController {
     
     @IBAction func categoryChosen(_ sender: UISegmentedControl) {
         // choose category of task
-        switch sender.selectedSegmentIndex {
-        case 0:
-            taskCategory = "ToDo"
-        case 1:
-            taskCategory = "Shopping"
-        case 2:
-            taskCategory = "Assignment"
-        default:
-            taskCategory = "ToDo"
-        }
+        taskCategory = taskCategories[sender.selectedSegmentIndex]
     }
     
     @IBAction func cancelButtonTapped(_ sender: Any) {
