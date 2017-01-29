@@ -28,7 +28,15 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     // MARK: - Properties for table veiw
     
     var tasks:[Task] = []
-    var tasksToShow:[String:[String]] = ["ToDo":[], "Shopping":[], "Assignment":[]]
+    var tasksToShow:[String:[String]] = {
+        var tasksToShow:[String:[String]] = [:]
+        
+        for taskCategory in taskCategories {
+            tasksToShow[taskCategory] = []
+        }
+        
+        return tasksToShow
+    }()
     
     // MARK: - View Life Cycle
     
