@@ -12,6 +12,7 @@ import CoreData
 // MARK: - Global Properties
 
 var taskCategories:[String] = ["ToDo", "Shopping", "Assignment"]
+let firstNumberOfTaskCategories = taskCategories.count
 
 // MARK: - class ViewController
 
@@ -48,6 +49,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        // load categories added by user
+        loadAddedCategories()
+        
         // fetch data from core data
         getData()
         
@@ -72,8 +76,32 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 let task = try context.fetch(fetchRequest)
                 destinationViewController.task = task[0]
             } catch {
-                print("Fetching Failed.")
+                print("Edited Task Fetching Failed.")
             }
+        }
+    }
+    
+    // MARK: - Method of loading categories added by user
+    
+    func loadAddedCategories() {
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        do {
+            // fetch added categories
+            let addedCategories:[AddedCategory] = try context.fetch(AddedCategory.fetchRequest())
+            
+            // return if all added categories have been already loaded
+            if addedCategories.count == taskCategories.count - firstNumberOfTaskCategories {
+                return
+            } else {
+                // add new category into taskCategories[] and tasksToShow[:]
+                let startIndex = taskCategories.count - firstNumberOfTaskCategories
+                for addedCategoryIndex in startIndex..<addedCategories.count {
+                    taskCategories.append(addedCategories[addedCategoryIndex].category!)
+                    tasksToShow[taskCategories.last!] = []
+                }
+            }
+        } catch {
+            print("Added Categories Fetching Failed.")
         }
     }
     
@@ -95,7 +123,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 tasksToShow[task.category!]?.append(task.name!)
             }
         } catch {
-            print("Fetching Failed.")
+            print("Tasks Fetching Failed.")
         }
     }
 

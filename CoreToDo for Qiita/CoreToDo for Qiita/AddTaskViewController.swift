@@ -14,6 +14,7 @@ class AddTaskViewController: UIViewController {
     
     @IBOutlet weak var taskTextField: UITextField!
     @IBOutlet weak var categorySegmentedControl: UISegmentedControl!
+    @IBOutlet weak var categoryTextField: UITextField!
     
     // MARK: -
     
@@ -29,6 +30,14 @@ class AddTaskViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // add segment of added categories into categorySegmentedControl
+        if taskCategories.count > firstNumberOfTaskCategories {
+            for addedCategoryIndex in firstNumberOfTaskCategories..<taskCategories.count {
+                categorySegmentedControl.insertSegment(withTitle: taskCategories[addedCategoryIndex], at: addedCategoryIndex, animated: false)
+            }
+        }
+        
+        // set information of selected task (got from segue)
         if let task = task {
             taskTextField.text = task.name
             taskCategory = task.category!
@@ -68,6 +77,22 @@ class AddTaskViewController: UIViewController {
             task.category = taskCategory
         }
         
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+        
+        dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func addNewCategory(_ sender: Any) {
+        // dismiss if no category is input
+        let newCategory = categoryTextField.text
+        if newCategory == "" {
+            dismiss(animated: true, completion: nil)
+            return
+        }
+        
+        // add new category into core data
+        let addedCategory = AddedCategory(context: context)
+        addedCategory.category = newCategory!
         (UIApplication.shared.delegate as! AppDelegate).saveContext()
         
         dismiss(animated: true, completion: nil)
