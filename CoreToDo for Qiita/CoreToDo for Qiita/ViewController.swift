@@ -11,7 +11,7 @@ import CoreData
 
 // MARK: - Global Properties
 
-let taskCategories:[String] = ["ToDo", "Shopping", "Assignment"]
+var taskCategories:[String] = ["ToDo", "Shopping", "Assignment"]
 
 // MARK: - class ViewController
 
@@ -44,7 +44,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         super.viewDidLoad()
         
         taskTableView.dataSource = self
-        taskTableView.delegate = self
+        taskTableView.delegate = self        
     }
     
     override func viewWillAppear(_ animated: Bool) {
