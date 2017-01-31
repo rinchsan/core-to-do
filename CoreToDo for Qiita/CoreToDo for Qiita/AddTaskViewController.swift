@@ -34,7 +34,24 @@ class AddTaskViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // add segment of added categories into categorySegmentedControl
+        // configure category segmented control 1 2
+        configureSegmentedControl()
+        
+        // set information of selected task (got from segue)
+        if let task = task {
+            taskTextField.text = task.name
+            taskCategory = task.category!
+            if let taskCategoryIndex = taskCategories.index(of: task.category!) {
+                categorySegmentedControl.selectedSegmentIndex = taskCategoryIndex
+            } else {
+                categorySegmentedControl.selectedSegmentIndex = 0
+            }
+        }
+    }
+    
+    // MARK: - Method of Configuring Category Segmented Control 1 2
+    
+    func configureSegmentedControl() {
         if taskCategories.count > firstNumberOfTaskCategories {
             for addedCategoryIndex in firstNumberOfTaskCategories..<taskCategories.count {
                 if addedCategoryIndex < limitOfSegments {
@@ -52,17 +69,6 @@ class AddTaskViewController: UIViewController {
                 else {
                     categorySegmentedControl2.insertSegment(withTitle: taskCategories[addedCategoryIndex], at: addedCategoryIndex - limitOfSegments, animated: false)
                 }
-            }
-        }
-        
-        // set information of selected task (got from segue)
-        if let task = task {
-            taskTextField.text = task.name
-            taskCategory = task.category!
-            if let taskCategoryIndex = taskCategories.index(of: task.category!) {
-                categorySegmentedControl.selectedSegmentIndex = taskCategoryIndex
-            } else {
-                categorySegmentedControl.selectedSegmentIndex = 0
             }
         }
     }
@@ -97,17 +103,19 @@ class AddTaskViewController: UIViewController {
     }
     
     @IBAction func plusButtonTapped(_ sender: Any) {
-        
+        // dismiss if nothing in taskTextField
         let taskName = taskTextField.text
         if taskName == "" {
             dismiss(animated: true, completion: nil)
             return
         }
         
+        // make new Task object if nothing is got from segue
         if task == nil {
             task = Task(context: context)
         }
         
+        // configure Task object
         if let task = task {
             task.name = taskName
             task.category = taskCategory
@@ -161,6 +169,8 @@ class AddTaskViewController: UIViewController {
         } catch {
             print("Deleted Task Fetching Failed.")
         }
+        
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()
         
         dismiss(animated: true, completion: nil)
     }
