@@ -31,10 +31,8 @@ AutoLayoutを使用しています。
 - "ToDo"、"Shopping"、"Assignment"以外のカテゴリを選択し、ゴミ箱ボタンを押すとそのカテゴリを削除できます。
 
 ## 作り方
-作り方の手順をチュートリアルとしてQiitaで公開しています。
+作り方の手順をチュートリアルとして[Qiita](http://qiita.com/MasayaHayashi724/items/0d27f4abf7b14c72107f)で公開しています。
 
 公開後に実装した機能については機能説明のみを追記しているので、具体的なコーディングは解説していません。
 
 何かありましたらお気軽にコメントください。
-
-http://qiita.com/MasayaHayashi724/items/0d27f4abf7b14c72107f
