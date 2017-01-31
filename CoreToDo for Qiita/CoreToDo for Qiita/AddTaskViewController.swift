@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class AddTaskViewController: UIViewController {
     
@@ -120,6 +121,34 @@ class AddTaskViewController: UIViewController {
     }
     
     @IBAction func deleteSelectedCategory(_ sender: Any) {
+        // delete selected category from taskCategories[]
+        if let deletedIndex = taskCategories.index(of: taskCategory) {
+            taskCategories.remove(at: deletedIndex)
+        }
+        
+        // delete category from core data
+        let fetchRequest1: NSFetchRequest<AddedCategory> = AddedCategory.fetchRequest()
+        fetchRequest1.predicate = NSPredicate(format: "category = %@", taskCategory)
+        do {
+            let category = try context.fetch(fetchRequest1)
+            context.delete(category[0])
+        } catch {
+            print("Deleted Category Fetching Failed.")
+        }
+        
+        // delete all tasks of selected category
+        let fetchRequest2: NSFetchRequest<Task> = Task.fetchRequest()
+        fetchRequest2.predicate = NSPredicate(format: "category = %@", taskCategory)
+        do {
+            let tasks = try context.fetch(fetchRequest2)
+            for task in tasks {
+                context.delete(task)
+            }
+        } catch {
+            print("Deleted Task Fetching Failed.")
+        }
+        
+        dismiss(animated: true, completion: nil)
     }
     
 }

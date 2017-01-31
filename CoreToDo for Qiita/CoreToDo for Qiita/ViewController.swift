@@ -185,7 +185,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 let task = try context.fetch(fetchRequest)
                 context.delete(task[0])
             } catch {
-                print("Fetching Failed.")
+                print("Deleted Task Fetching Failed.")
             }
             
             // save context
