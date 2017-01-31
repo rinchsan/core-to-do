@@ -120,6 +120,12 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter New Task" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bxh-RF-AqY">
+                                <rect key="frame" x="16" y="352" width="343" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" apportionsSegmentWidthsByContent="YES" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="rya-0K-2X6">
                                 <rect key="frame" x="16" y="128" width="343" height="29"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -145,12 +151,6 @@
                                     <action selector="cateogryChosen2:" destination="zrB-ma-tjN" eventType="valueChanged" id="zpo-u2-McY"/>
                                 </connections>
                             </segmentedControl>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter New Task" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bxh-RF-AqY">
-                                <rect key="frame" x="16" y="352" width="343" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lbc-fi-qEZ">
                                 <rect key="frame" x="274" y="207" width="70" height="70"/>
                                 <constraints>
@@ -183,6 +183,28 @@
                                     <action selector="addNewCategory:" destination="zrB-ma-tjN" eventType="touchUpInside" id="9z8-ol-G1j"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delete Selected Category" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="om5-pr-uLc">
+                                <rect key="frame" x="16" y="482" width="343" height="40"/>
+                                <color key="backgroundColor" red="1" green="0.84183681420000001" blue="0.001031347811" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="2gZ-X6-Prj"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <color key="textColor" red="0.60000002379999995" green="0.40000000600000002" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lsg-5J-D5z">
+                                <rect key="frame" x="274" y="537" width="70" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="9uZ-ly-Zgh"/>
+                                    <constraint firstAttribute="width" constant="70" id="m7Y-d2-1gr"/>
+                                </constraints>
+                                <state key="normal" image="deleteButton"/>
+                                <connections>
+                                    <action selector="addNewCategory:" destination="zrB-ma-tjN" eventType="touchUpInside" id="8xg-Nx-2Qk"/>
+                                    <action selector="deleteSelectedCategory:" destination="zrB-ma-tjN" eventType="touchUpInside" id="dAL-XS-cQI"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.99182273649999997" blue="0.71245613019999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -192,6 +214,8 @@
                             <constraint firstItem="VwN-wb-VTf" firstAttribute="top" secondItem="rya-0K-2X6" secondAttribute="bottom" constant="8" id="76P-Wt-eXp"/>
                             <constraint firstAttribute="trailingMargin" secondItem="qxe-Yb-uIn" secondAttribute="trailing" id="8eC-ZS-p4K"/>
                             <constraint firstAttribute="trailingMargin" secondItem="zYA-eq-Jey" secondAttribute="trailing" constant="5" id="BBV-4e-LCZ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Lsg-5J-D5z" secondAttribute="trailing" constant="15" id="Bub-qm-ZO5"/>
+                            <constraint firstItem="om5-pr-uLc" firstAttribute="top" secondItem="Mo6-xd-DH9" secondAttribute="bottom" constant="15" id="JJJ-F7-HAN"/>
                             <constraint firstAttribute="trailingMargin" secondItem="x8a-CC-pPf" secondAttribute="trailing" id="SXz-hW-ESc"/>
                             <constraint firstItem="VwN-wb-VTf" firstAttribute="trailing" secondItem="BuY-iv-fW0" secondAttribute="trailingMargin" id="ULP-ia-fB7"/>
                             <constraint firstAttribute="trailingMargin" secondItem="lbc-fi-qEZ" secondAttribute="trailing" constant="15" id="VBR-2E-7LA"/>
@@ -201,6 +225,7 @@
                             <constraint firstItem="rya-0K-2X6" firstAttribute="top" secondItem="x8a-CC-pPf" secondAttribute="bottom" constant="10" id="dME-nk-TES"/>
                             <constraint firstItem="qxe-Yb-uIn" firstAttribute="leading" secondItem="BuY-iv-fW0" secondAttribute="leadingMargin" id="evW-IQ-T8M"/>
                             <constraint firstAttribute="trailingMargin" secondItem="rya-0K-2X6" secondAttribute="trailing" id="fbb-xv-Inr"/>
+                            <constraint firstItem="om5-pr-uLc" firstAttribute="leading" secondItem="BuY-iv-fW0" secondAttribute="leadingMargin" id="hX8-oz-NDY"/>
                             <constraint firstItem="Mo6-xd-DH9" firstAttribute="top" secondItem="bxh-RF-AqY" secondAttribute="bottom" constant="15" id="lOf-Pv-FXd"/>
                             <constraint firstItem="bxh-RF-AqY" firstAttribute="trailing" secondItem="BuY-iv-fW0" secondAttribute="trailingMargin" id="mPT-6J-El0"/>
                             <constraint firstItem="bxh-RF-AqY" firstAttribute="leading" secondItem="BuY-iv-fW0" secondAttribute="leadingMargin" id="qek-OJ-Wfo"/>
@@ -208,8 +233,10 @@
                             <constraint firstItem="nJS-KX-2M7" firstAttribute="leading" secondItem="BuY-iv-fW0" secondAttribute="leadingMargin" id="vNn-GK-esI"/>
                             <constraint firstItem="lbc-fi-qEZ" firstAttribute="top" secondItem="VwN-wb-VTf" secondAttribute="bottom" constant="15" id="vcT-KG-1ca"/>
                             <constraint firstItem="zYA-eq-Jey" firstAttribute="top" secondItem="Ef1-Ua-sDq" secondAttribute="bottom" constant="13" id="vpG-ao-S5G"/>
+                            <constraint firstItem="om5-pr-uLc" firstAttribute="trailing" secondItem="BuY-iv-fW0" secondAttribute="trailingMargin" id="vr5-5M-vL4"/>
                             <constraint firstItem="x8a-CC-pPf" firstAttribute="top" secondItem="qxe-Yb-uIn" secondAttribute="bottom" constant="20" id="wdQ-Ff-cpk"/>
                             <constraint firstItem="bxh-RF-AqY" firstAttribute="top" secondItem="nJS-KX-2M7" secondAttribute="bottom" constant="20" id="x8b-HJ-iar"/>
+                            <constraint firstItem="Lsg-5J-D5z" firstAttribute="top" secondItem="om5-pr-uLc" secondAttribute="bottom" constant="15" id="ySf-wB-vlq"/>
                         </constraints>
                     </view>
                     <connections>
@@ -226,6 +253,7 @@
     </scenes>
     <resources>
         <image name="cancelButton" width="256" height="256"/>
+        <image name="deleteButton" width="256" height="256"/>
         <image name="plusButton" width="256" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>

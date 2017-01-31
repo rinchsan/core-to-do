@@ -119,4 +119,7 @@ class AddTaskViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func deleteSelectedCategory(_ sender: Any) {
+    }
+    
 }
