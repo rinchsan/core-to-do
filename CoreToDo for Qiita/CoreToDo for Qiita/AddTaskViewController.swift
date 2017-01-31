@@ -100,6 +100,8 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func cateogryChosen2(_ sender: UISegmentedControl) {
+        deleteCategoryButton.isEnabled = true
+        
         // choose category of task
         taskCategory = taskCategories[sender.selectedSegmentIndex + limitOfSegments]
         
