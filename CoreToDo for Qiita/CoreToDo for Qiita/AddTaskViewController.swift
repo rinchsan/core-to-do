@@ -64,6 +64,17 @@ class AddTaskViewController: UIViewController {
     @IBAction func categoryChosen(_ sender: UISegmentedControl) {
         // choose category of task
         taskCategory = taskCategories[sender.selectedSegmentIndex]
+        
+        // unselect category segmented control 2
+        categorySegmentedControl2.selectedSegmentIndex = UISegmentedControlNoSegment
+    }
+    
+    @IBAction func cateogryChosen2(_ sender: UISegmentedControl) {
+        // shoose category of task
+        taskCategory = taskCategories[sender.selectedSegmentIndex + limitOfSegments]
+        
+        // unselect category segmented control 1
+        categorySegmentedControl.selectedSegmentIndex = UISegmentedControlNoSegment
     }
     
     @IBAction func cancelButtonTapped(_ sender: Any) {
