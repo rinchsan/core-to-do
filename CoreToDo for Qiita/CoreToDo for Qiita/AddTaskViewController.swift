@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class AddTaskViewController: UIViewController {
+class AddTaskViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: - Properties
     
@@ -47,9 +47,12 @@ class AddTaskViewController: UIViewController {
                 categorySegmentedControl.selectedSegmentIndex = 0
             }
         }
+        
+        taskTextField.delegate = self
+        categoryTextField.delegate = self
     }
     
-    // MARK: - Method of Configuring Category Segmented Control 1 2
+    // MARK: -
     
     func configureSegmentedControl() {
         if taskCategories.count > firstNumberOfTaskCategories {
@@ -71,6 +74,13 @@ class AddTaskViewController: UIViewController {
                 }
             }
         }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        // hide keyboard
+        textField.resignFirstResponder()
+        
+        return true
     }
     
     // MARK: - Actions of Buttons
