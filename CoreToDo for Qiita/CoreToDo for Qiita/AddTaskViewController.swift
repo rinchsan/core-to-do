@@ -34,7 +34,15 @@ class AddTaskViewController: UIViewController {
         // add segment of added categories into categorySegmentedControl
         if taskCategories.count > firstNumberOfTaskCategories {
             for addedCategoryIndex in firstNumberOfTaskCategories..<taskCategories.count {
-                categorySegmentedControl.insertSegment(withTitle: taskCategories[addedCategoryIndex], at: addedCategoryIndex, animated: false)
+                if addedCategoryIndex <= 4 {
+                    categorySegmentedControl.insertSegment(withTitle: taskCategories[addedCategoryIndex], at: addedCategoryIndex, animated: false)
+                } else if addedCategoryIndex == 5 || addedCategoryIndex == 6 {
+                    categorySegmentedControl2.setEnabled(true, forSegmentAt: addedCategoryIndex-5)
+                    categorySegmentedControl2.setTitle(taskCategories[addedCategoryIndex], forSegmentAt: addedCategoryIndex-5)
+                } else {
+                    categorySegmentedControl2.isEnabled = true
+                    categorySegmentedControl2.insertSegment(withTitle: taskCategories[addedCategoryIndex], at: addedCategoryIndex-5, animated: false)
+                }
             }
         }
         
