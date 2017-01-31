@@ -20,6 +20,7 @@ class AddTaskViewController: UIViewController {
     // MARK: -
     
     var taskCategory = "ToDo"
+    let limitOfSegments = 5
     
     // MARK: -
     
@@ -34,14 +35,14 @@ class AddTaskViewController: UIViewController {
         // add segment of added categories into categorySegmentedControl
         if taskCategories.count > firstNumberOfTaskCategories {
             for addedCategoryIndex in firstNumberOfTaskCategories..<taskCategories.count {
-                if addedCategoryIndex <= 4 {
+                if addedCategoryIndex < limitOfSegments {
                     categorySegmentedControl.insertSegment(withTitle: taskCategories[addedCategoryIndex], at: addedCategoryIndex, animated: false)
-                } else if addedCategoryIndex == 5 || addedCategoryIndex == 6 {
-                    categorySegmentedControl2.setEnabled(true, forSegmentAt: addedCategoryIndex-5)
-                    categorySegmentedControl2.setTitle(taskCategories[addedCategoryIndex], forSegmentAt: addedCategoryIndex-5)
+                } else if addedCategoryIndex == limitOfSegments || addedCategoryIndex == limitOfSegments + 1 {
+                    categorySegmentedControl2.setEnabled(true, forSegmentAt: addedCategoryIndex - limitOfSegments)
+                    categorySegmentedControl2.setTitle(taskCategories[addedCategoryIndex], forSegmentAt: addedCategoryIndex - limitOfSegments)
                 } else {
                     categorySegmentedControl2.isEnabled = true
-                    categorySegmentedControl2.insertSegment(withTitle: taskCategories[addedCategoryIndex], at: addedCategoryIndex-5, animated: false)
+                    categorySegmentedControl2.insertSegment(withTitle: taskCategories[addedCategoryIndex], at: addedCategoryIndex - limitOfSegments, animated: false)
                 }
             }
         }
