@@ -143,7 +143,7 @@
                                 <rect key="frame" x="16" y="164" width="343" height="29"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <segments>
-                                    <segment title="" enabled="NO"/>
+                                    <segment title=""/>
                                     <segment title=""/>
                                 </segments>
                                 <color key="tintColor" red="0.93674510720000004" green="0.46438953360000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
