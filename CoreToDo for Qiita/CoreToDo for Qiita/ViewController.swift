@@ -11,7 +11,7 @@ import CoreData
 
 // MARK: - Global Properties
 
-var taskCategories:[String] = ["ToDo", "Shopping", "Assignment"]
+var taskCategories:[String] = ["ToDo", "Shopping"]
 let firstNumberOfTaskCategories = taskCategories.count
 
 // MARK: - class ViewController

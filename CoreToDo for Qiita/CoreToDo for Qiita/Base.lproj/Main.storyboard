@@ -132,7 +132,6 @@
                                 <segments>
                                     <segment title="ToDo"/>
                                     <segment title="Shopping"/>
-                                    <segment title="Assignment"/>
                                 </segments>
                                 <color key="tintColor" red="0.93674510720000004" green="0.46438953360000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>

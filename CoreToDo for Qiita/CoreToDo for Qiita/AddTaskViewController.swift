@@ -77,7 +77,7 @@ class AddTaskViewController: UIViewController {
     
     @IBAction func categoryChosen(_ sender: UISegmentedControl) {
         // You cannot delete first three categories
-        if sender.selectedSegmentIndex < 3 {
+        if sender.selectedSegmentIndex < firstNumberOfTaskCategories {
             deleteCategoryButton.isEnabled = false
         } else {
             deleteCategoryButton.isEnabled = true
@@ -91,7 +91,7 @@ class AddTaskViewController: UIViewController {
     }
     
     @IBAction func cateogryChosen2(_ sender: UISegmentedControl) {
-        // shoose category of task
+        // choose category of task
         taskCategory = taskCategories[sender.selectedSegmentIndex + limitOfSegments]
         
         // unselect category segmented control 1
@@ -134,9 +134,10 @@ class AddTaskViewController: UIViewController {
             return
         }
         
-        // add new category into core data
+        // configure AddedCategory object
         let addedCategory = AddedCategory(context: context)
         addedCategory.category = newCategory!
+        
         (UIApplication.shared.delegate as! AppDelegate).saveContext()
         
         dismiss(animated: true, completion: nil)
