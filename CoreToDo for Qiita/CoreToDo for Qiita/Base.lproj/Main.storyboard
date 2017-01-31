@@ -120,12 +120,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter New Task" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bxh-RF-AqY">
-                                <rect key="frame" x="16" y="316" width="343" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" apportionsSegmentWidthsByContent="YES" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="rya-0K-2X6">
                                 <rect key="frame" x="16" y="128" width="343" height="29"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -139,11 +133,26 @@
                                     <action selector="categoryChosen:" destination="zrB-ma-tjN" eventType="valueChanged" id="1lT-P6-tnL"/>
                                 </connections>
                             </segmentedControl>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="top" apportionsSegmentWidthsByContent="YES" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="VwN-wb-VTf">
+                                <rect key="frame" x="16" y="164" width="343" height="29"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <segments>
+                                    <segment title="" enabled="NO"/>
+                                    <segment title=""/>
+                                </segments>
+                                <color key="tintColor" red="0.93674510720000004" green="0.46438953360000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </segmentedControl>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter New Task" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bxh-RF-AqY">
+                                <rect key="frame" x="16" y="352" width="343" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lbc-fi-qEZ">
-                                <rect key="frame" x="274" y="171" width="70" height="70"/>
+                                <rect key="frame" x="274" y="207" width="70" height="70"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="70" id="NdW-qv-Ga0"/>
-                                    <constraint firstAttribute="height" constant="70" id="oCI-zJ-cAC"/>
+                                    <constraint firstAttribute="width" constant="70" id="Hfo-bF-NrU"/>
+                                    <constraint firstAttribute="height" constant="70" id="LXO-vG-ubA"/>
                                 </constraints>
                                 <state key="normal" image="plusButton"/>
                                 <connections>
@@ -151,55 +160,58 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Category Task" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nJS-KX-2M7">
-                                <rect key="frame" x="16" y="256" width="343" height="40"/>
+                                <rect key="frame" x="16" y="292" width="343" height="40"/>
                                 <color key="backgroundColor" red="1" green="0.84183681420000001" blue="0.001031347811" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="a0A-dr-HXK"/>
+                                    <constraint firstAttribute="height" constant="40" id="Xc0-9n-sTT"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <color key="textColor" red="0.60000002379999995" green="0.40000000600000002" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mo6-xd-DH9">
-                                <rect key="frame" x="274" y="361" width="70" height="70"/>
+                                <rect key="frame" x="274" y="397" width="70" height="70"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="70" id="LaE-TJ-m4a"/>
-                                    <constraint firstAttribute="height" constant="70" id="nDe-xY-kwf"/>
+                                    <constraint firstAttribute="width" constant="70" id="8mX-QI-1LB"/>
+                                    <constraint firstAttribute="height" constant="70" id="ws9-V5-WBM"/>
                                 </constraints>
                                 <state key="normal" image="plusButton"/>
                                 <connections>
                                     <action selector="addNewCategory:" destination="zrB-ma-tjN" eventType="touchUpInside" id="9z8-ol-G1j"/>
-                                    <action selector="plusButtonTapped:" destination="zrB-ma-tjN" eventType="touchUpInside" id="VpM-0q-rbS"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.99182273649999997" blue="0.71245613019999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="nJS-KX-2M7" firstAttribute="leading" secondItem="BuY-iv-fW0" secondAttribute="leadingMargin" id="0dy-3b-uGx"/>
                             <constraint firstItem="qxe-Yb-uIn" firstAttribute="top" secondItem="Ef1-Ua-sDq" secondAttribute="bottom" constant="8" id="1sR-8Z-fcS"/>
+                            <constraint firstItem="nJS-KX-2M7" firstAttribute="trailing" secondItem="BuY-iv-fW0" secondAttribute="trailingMargin" id="5oU-Lt-tJh"/>
+                            <constraint firstItem="nJS-KX-2M7" firstAttribute="top" secondItem="lbc-fi-qEZ" secondAttribute="bottom" constant="15" id="5wJ-sz-Nt2"/>
+                            <constraint firstItem="VwN-wb-VTf" firstAttribute="top" secondItem="rya-0K-2X6" secondAttribute="bottom" constant="8" id="76P-Wt-eXp"/>
                             <constraint firstAttribute="trailingMargin" secondItem="qxe-Yb-uIn" secondAttribute="trailing" id="8eC-ZS-p4K"/>
                             <constraint firstAttribute="trailingMargin" secondItem="zYA-eq-Jey" secondAttribute="trailing" constant="5" id="BBV-4e-LCZ"/>
-                            <constraint firstItem="nJS-KX-2M7" firstAttribute="trailing" secondItem="BuY-iv-fW0" secondAttribute="trailingMargin" id="LPM-Ye-VOx"/>
-                            <constraint firstItem="nJS-KX-2M7" firstAttribute="top" secondItem="lbc-fi-qEZ" secondAttribute="bottom" constant="15" id="Odg-W4-PdU"/>
-                            <constraint firstItem="bxh-RF-AqY" firstAttribute="top" secondItem="nJS-KX-2M7" secondAttribute="bottom" constant="20" id="Plh-SV-Or6"/>
                             <constraint firstAttribute="trailingMargin" secondItem="x8a-CC-pPf" secondAttribute="trailing" id="SXz-hW-ESc"/>
+                            <constraint firstItem="VwN-wb-VTf" firstAttribute="trailing" secondItem="BuY-iv-fW0" secondAttribute="trailingMargin" id="ULP-ia-fB7"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="lbc-fi-qEZ" secondAttribute="trailing" constant="15" id="VBR-2E-7LA"/>
                             <constraint firstItem="rya-0K-2X6" firstAttribute="leading" secondItem="BuY-iv-fW0" secondAttribute="leadingMargin" id="W77-og-inq"/>
                             <constraint firstItem="x8a-CC-pPf" firstAttribute="leading" secondItem="BuY-iv-fW0" secondAttribute="leadingMargin" id="a60-b9-AXM"/>
-                            <constraint firstItem="Mo6-xd-DH9" firstAttribute="top" secondItem="bxh-RF-AqY" secondAttribute="bottom" constant="15" id="bY2-VA-Vde"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Mo6-xd-DH9" secondAttribute="trailing" constant="15" id="dBw-5E-exR"/>
                             <constraint firstItem="rya-0K-2X6" firstAttribute="top" secondItem="x8a-CC-pPf" secondAttribute="bottom" constant="10" id="dME-nk-TES"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="lbc-fi-qEZ" secondAttribute="trailing" constant="15" id="dWu-bO-phw"/>
                             <constraint firstItem="qxe-Yb-uIn" firstAttribute="leading" secondItem="BuY-iv-fW0" secondAttribute="leadingMargin" id="evW-IQ-T8M"/>
                             <constraint firstAttribute="trailingMargin" secondItem="rya-0K-2X6" secondAttribute="trailing" id="fbb-xv-Inr"/>
-                            <constraint firstItem="bxh-RF-AqY" firstAttribute="trailing" secondItem="BuY-iv-fW0" secondAttribute="trailingMargin" id="gKr-W3-80M"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Mo6-xd-DH9" secondAttribute="trailing" constant="15" id="kBl-Ue-kf0"/>
-                            <constraint firstItem="lbc-fi-qEZ" firstAttribute="top" secondItem="rya-0K-2X6" secondAttribute="bottom" constant="15" id="skf-as-FQI"/>
+                            <constraint firstItem="Mo6-xd-DH9" firstAttribute="top" secondItem="bxh-RF-AqY" secondAttribute="bottom" constant="15" id="lOf-Pv-FXd"/>
+                            <constraint firstItem="bxh-RF-AqY" firstAttribute="trailing" secondItem="BuY-iv-fW0" secondAttribute="trailingMargin" id="mPT-6J-El0"/>
+                            <constraint firstItem="bxh-RF-AqY" firstAttribute="leading" secondItem="BuY-iv-fW0" secondAttribute="leadingMargin" id="qek-OJ-Wfo"/>
+                            <constraint firstItem="VwN-wb-VTf" firstAttribute="leading" secondItem="BuY-iv-fW0" secondAttribute="leadingMargin" id="sPG-mC-eX9"/>
+                            <constraint firstItem="nJS-KX-2M7" firstAttribute="leading" secondItem="BuY-iv-fW0" secondAttribute="leadingMargin" id="vNn-GK-esI"/>
+                            <constraint firstItem="lbc-fi-qEZ" firstAttribute="top" secondItem="VwN-wb-VTf" secondAttribute="bottom" constant="15" id="vcT-KG-1ca"/>
                             <constraint firstItem="zYA-eq-Jey" firstAttribute="top" secondItem="Ef1-Ua-sDq" secondAttribute="bottom" constant="13" id="vpG-ao-S5G"/>
-                            <constraint firstItem="bxh-RF-AqY" firstAttribute="leading" secondItem="BuY-iv-fW0" secondAttribute="leadingMargin" id="wPY-Zm-7hE"/>
                             <constraint firstItem="x8a-CC-pPf" firstAttribute="top" secondItem="qxe-Yb-uIn" secondAttribute="bottom" constant="20" id="wdQ-Ff-cpk"/>
+                            <constraint firstItem="bxh-RF-AqY" firstAttribute="top" secondItem="nJS-KX-2M7" secondAttribute="bottom" constant="20" id="x8b-HJ-iar"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="categorySegmentedControl" destination="rya-0K-2X6" id="58r-aJ-cZ9"/>
+                        <outlet property="categorySegmentedControl2" destination="VwN-wb-VTf" id="oFM-4P-dFF"/>
                         <outlet property="categoryTextField" destination="bxh-RF-AqY" id="Z7u-YP-T8I"/>
                         <outlet property="taskTextField" destination="x8a-CC-pPf" id="eFc-tI-cn9"/>
                     </connections>

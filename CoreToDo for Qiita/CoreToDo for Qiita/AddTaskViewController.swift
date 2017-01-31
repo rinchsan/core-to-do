@@ -14,6 +14,7 @@ class AddTaskViewController: UIViewController {
     
     @IBOutlet weak var taskTextField: UITextField!
     @IBOutlet weak var categorySegmentedControl: UISegmentedControl!
+    @IBOutlet weak var categorySegmentedControl2: UISegmentedControl!
     @IBOutlet weak var categoryTextField: UITextField!
     
     // MARK: -
