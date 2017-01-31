@@ -17,6 +17,7 @@ class AddTaskViewController: UIViewController {
     @IBOutlet weak var categorySegmentedControl: UISegmentedControl!
     @IBOutlet weak var categorySegmentedControl2: UISegmentedControl!
     @IBOutlet weak var categoryTextField: UITextField!
+    @IBOutlet weak var deleteCategoryButton: UIButton!
     
     // MARK: -
     
@@ -69,6 +70,13 @@ class AddTaskViewController: UIViewController {
     // MARK: - Actions of Buttons
     
     @IBAction func categoryChosen(_ sender: UISegmentedControl) {
+        // You cannot delete first three categories
+        if sender.selectedSegmentIndex < 3 {
+            deleteCategoryButton.isEnabled = false
+        } else {
+            deleteCategoryButton.isEnabled = true
+        }
+        
         // choose category of task
         taskCategory = taskCategories[sender.selectedSegmentIndex]
         

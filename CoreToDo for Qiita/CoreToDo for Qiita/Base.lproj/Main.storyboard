@@ -193,7 +193,7 @@
                                 <color key="textColor" red="0.60000002379999995" green="0.40000000600000002" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lsg-5J-D5z">
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lsg-5J-D5z">
                                 <rect key="frame" x="274" y="537" width="70" height="70"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="9uZ-ly-Zgh"/>
@@ -201,7 +201,6 @@
                                 </constraints>
                                 <state key="normal" image="deleteButton"/>
                                 <connections>
-                                    <action selector="addNewCategory:" destination="zrB-ma-tjN" eventType="touchUpInside" id="8xg-Nx-2Qk"/>
                                     <action selector="deleteSelectedCategory:" destination="zrB-ma-tjN" eventType="touchUpInside" id="dAL-XS-cQI"/>
                                 </connections>
                             </button>
@@ -243,6 +242,7 @@
                         <outlet property="categorySegmentedControl" destination="rya-0K-2X6" id="58r-aJ-cZ9"/>
                         <outlet property="categorySegmentedControl2" destination="VwN-wb-VTf" id="oFM-4P-dFF"/>
                         <outlet property="categoryTextField" destination="bxh-RF-AqY" id="Z7u-YP-T8I"/>
+                        <outlet property="deleteCategoryButton" destination="Lsg-5J-D5z" id="2rx-K3-vbU"/>
                         <outlet property="taskTextField" destination="x8a-CC-pPf" id="eFc-tI-cn9"/>
                     </connections>
                 </viewController>
