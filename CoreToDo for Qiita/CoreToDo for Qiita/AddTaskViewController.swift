@@ -18,6 +18,7 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var categorySegmentedControl2: UISegmentedControl!
     @IBOutlet weak var categoryTextField: UITextField!
     @IBOutlet weak var deleteCategoryButton: UIButton!
+    @IBOutlet weak var addCategoryButton: UIButton!
     
     // MARK: -
     
@@ -46,6 +47,7 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate {
             } else {
                 categorySegmentedControl.selectedSegmentIndex = 0
             }
+            addCategoryButton.isEnabled = false
         }
         
         taskTextField.delegate = self
@@ -116,7 +118,6 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate {
         // dismiss if nothing in taskTextField
         let taskName = taskTextField.text
         if taskName == "" {
-            dismiss(animated: true, completion: nil)
             return
         }
         
@@ -140,7 +141,6 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate {
         // dismiss if no category is input
         let newCategory = categoryTextField.text
         if newCategory == "" {
-            dismiss(animated: true, completion: nil)
             return
         }
         
