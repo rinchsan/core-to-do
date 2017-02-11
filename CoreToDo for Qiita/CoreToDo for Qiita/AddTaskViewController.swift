@@ -38,7 +38,6 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate {
         
         // set limitOfSegments compatible for view
         limitOfSegments = Int(addTaskView.frame.width / 67)
-        print(limitOfSegments)
         
         // configure category segmented control 1 2
         configureSegmentedControl()
