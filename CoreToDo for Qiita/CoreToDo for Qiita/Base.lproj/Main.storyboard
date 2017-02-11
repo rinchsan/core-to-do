@@ -239,6 +239,7 @@
                     </view>
                     <connections>
                         <outlet property="addCategoryButton" destination="Mo6-xd-DH9" id="g7F-kx-bno"/>
+                        <outlet property="addTaskView" destination="BuY-iv-fW0" id="km6-lc-FHo"/>
                         <outlet property="categorySegmentedControl" destination="rya-0K-2X6" id="58r-aJ-cZ9"/>
                         <outlet property="categorySegmentedControl2" destination="VwN-wb-VTf" id="oFM-4P-dFF"/>
                         <outlet property="categoryTextField" destination="bxh-RF-AqY" id="Z7u-YP-T8I"/>

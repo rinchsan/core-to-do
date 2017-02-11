@@ -13,6 +13,7 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: - Properties
     
+    @IBOutlet var addTaskView: UIView!
     @IBOutlet weak var taskTextField: UITextField!
     @IBOutlet weak var categorySegmentedControl: UISegmentedControl!
     @IBOutlet weak var categorySegmentedControl2: UISegmentedControl!
@@ -23,7 +24,7 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate {
     // MARK: -
     
     var taskCategory = "ToDo"
-    let limitOfSegments = 5
+    var limitOfSegments: Int!
     
     // MARK: -
     
@@ -34,6 +35,10 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // set limitOfSegments compatible for view
+        limitOfSegments = Int(addTaskView.frame.width / 67)
+        print(limitOfSegments)
         
         // configure category segmented control 1 2
         configureSegmentedControl()
