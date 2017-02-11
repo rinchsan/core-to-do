@@ -194,8 +194,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             // fetch data from core data
             getData()
         }
-        // reload table view
-        taskTableView.reloadData()
+        // delete table view cell with animation
+        taskTableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
     }
     
 }
