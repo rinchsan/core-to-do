@@ -74,7 +74,7 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate {
                 } else if addedCategoryIndex == limitOfSegments || addedCategoryIndex == limitOfSegments + 1 {
                     // reset segment title if index is 0 or 1 in SegmentedControl 2
                     categorySegmentedControl2.isEnabled = true // Enable SegmentedControl 2
-                    // diable segment 1 if SegmentedControl 2 have only segment 0
+                    // diable segment 1 if SegmentedControl2 have only segment 0
                     categorySegmentedControl2.setEnabled((addedCategoryIndex == limitOfSegments + 1), forSegmentAt: 1)
                     categorySegmentedControl2.setTitle(taskCategories[addedCategoryIndex], forSegmentAt: addedCategoryIndex - limitOfSegments)
                 } else {
@@ -124,8 +124,7 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func plusButtonTapped(_ sender: Any) {
         // dismiss if nothing in taskTextField
-        let taskName = taskTextField.text
-        if taskName == "" {
+        if taskTextField.text == "" {
             return
         }
         
@@ -136,7 +135,7 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate {
         
         // configure Task object
         if let task = task {
-            task.name = taskName
+            task.name = taskTextField.text
             task.category = taskCategory
         }
         
@@ -147,8 +146,7 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func addNewCategory(_ sender: Any) {
         // dismiss if no category is input
-        let newCategory = categoryTextField.text
-        if newCategory == "" {
+        if categoryTextField.text == "" {
             return
         }
         
@@ -162,7 +160,7 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate {
         } else {
             // configure new AddedCategory object
             let addedCategory = AddedCategory(context: context)
-            addedCategory.category = newCategory!
+            addedCategory.category = categoryTextField.text
             
             (UIApplication.shared.delegate as! AppDelegate).saveContext()
             
