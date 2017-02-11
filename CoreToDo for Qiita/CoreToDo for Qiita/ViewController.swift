@@ -53,7 +53,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         loadAddedCategories()
         
         // fetch data from core data
-        getData()
+        fetchTasks()
         
         // reload the table view
         taskTableView.reloadData()
@@ -107,7 +107,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     // MARK: - Method of Getting data from Core Data
     
-    func getData() {
+    func fetchTasks() {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         do {
             // fetch data from core data
@@ -192,7 +192,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             (UIApplication.shared.delegate as! AppDelegate).saveContext()
             
             // fetch data from core data
-            getData()
+            fetchTasks()
         }
         // delete table view cell with animation
         taskTableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
