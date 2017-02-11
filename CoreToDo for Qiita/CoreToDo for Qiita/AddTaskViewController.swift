@@ -152,13 +152,22 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate {
             return
         }
         
-        // configure AddedCategory object
-        let addedCategory = AddedCategory(context: context)
-        addedCategory.category = newCategory!
-        
-        (UIApplication.shared.delegate as! AppDelegate).saveContext()
-        
-        dismiss(animated: true, completion: nil)
+        // alert if you have too much categories
+        if taskCategories.count >= 2 * limitOfSegments {
+            let alert = UIAlertController(title: "You cannot add category anymore.", message: "aaa", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { (action) in
+                alert.dismiss(animated: true, completion: nil)
+            }))
+            self.present(alert, animated: true, completion: nil)
+        } else {
+            // configure new AddedCategory object
+            let addedCategory = AddedCategory(context: context)
+            addedCategory.category = newCategory!
+            
+            (UIApplication.shared.delegate as! AppDelegate).saveContext()
+            
+            dismiss(animated: true, completion: nil)
+        }
     }
     
     @IBAction func deleteSelectedCategory(_ sender: Any) {
