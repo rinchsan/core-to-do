@@ -70,20 +70,20 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate {
     // MARK: -
     
     func configureSegmentedControl() {
-        if taskCategories.count > firstNumberOfTaskCategories {
-            for addedCategoryIndex in firstNumberOfTaskCategories..<taskCategories.count {
-                if addedCategoryIndex < limitOfSegments {
-                    // insert into SegmentedControl 1 up to limitOfSegments
-                    categorySegmentedControl.insertSegment(withTitle: taskCategories[addedCategoryIndex], at: addedCategoryIndex, animated: false)
-                } else if addedCategoryIndex == limitOfSegments || addedCategoryIndex == limitOfSegments + 1 {
-                    // reset segment title if index is 0 or 1 in SegmentedControl 2
-                    categorySegmentedControl2.isEnabled = true // Enable SegmentedControl 2
-                    // diable segment 1 if SegmentedControl2 have only segment 0
-                    categorySegmentedControl2.setEnabled((addedCategoryIndex == limitOfSegments + 1), forSegmentAt: 1)
-                    categorySegmentedControl2.setTitle(taskCategories[addedCategoryIndex], forSegmentAt: addedCategoryIndex - limitOfSegments)
-                } else {
-                    categorySegmentedControl2.insertSegment(withTitle: taskCategories[addedCategoryIndex], at: addedCategoryIndex - limitOfSegments, animated: false)
-                }
+        if taskCategories.count <= firstNumberOfTaskCategories { return }
+        
+        for addedCategoryIndex in firstNumberOfTaskCategories..<taskCategories.count {
+            if addedCategoryIndex < limitOfSegments {
+                // insert into SegmentedControl 1 up to limitOfSegments
+                categorySegmentedControl.insertSegment(withTitle: taskCategories[addedCategoryIndex], at: addedCategoryIndex, animated: false)
+            } else if addedCategoryIndex == limitOfSegments || addedCategoryIndex == limitOfSegments + 1 {
+                // reset segment title if index is 0 or 1 in SegmentedControl 2
+                categorySegmentedControl2.isEnabled = true // Enable SegmentedControl 2
+                // disable segment 1 if SegmentedControl2 have only segment 0
+                categorySegmentedControl2.setEnabled((addedCategoryIndex == limitOfSegments + 1), forSegmentAt: 1)
+                categorySegmentedControl2.setTitle(taskCategories[addedCategoryIndex], forSegmentAt: addedCategoryIndex - limitOfSegments)
+            } else {
+                categorySegmentedControl2.insertSegment(withTitle: taskCategories[addedCategoryIndex], at: addedCategoryIndex - limitOfSegments, animated: false)
             }
         }
     }
