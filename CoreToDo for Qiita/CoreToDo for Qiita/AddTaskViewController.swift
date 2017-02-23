@@ -79,11 +79,18 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate {
             } else if addedCategoryIndex == limitOfSegments || addedCategoryIndex == limitOfSegments + 1 {
                 // reset segment title if index is 0 or 1 in SegmentedControl 2
                 categorySegmentedControl2.isEnabled = true // Enable SegmentedControl 2
-                // disable segment 1 if SegmentedControl2 have only segment 0
+                // disable segment 1 if SegmentedControl2 has only segment 0
                 categorySegmentedControl2.setEnabled((addedCategoryIndex == limitOfSegments + 1), forSegmentAt: 1)
                 categorySegmentedControl2.setTitle(taskCategories[addedCategoryIndex], forSegmentAt: addedCategoryIndex - limitOfSegments)
-            } else {
+            } else if addedCategoryIndex < 2 * limitOfSegments {
+                // insert into SegmentedControl 2 up to 2*limitOfSegments
                 categorySegmentedControl2.insertSegment(withTitle: taskCategories[addedCategoryIndex], at: addedCategoryIndex - limitOfSegments, animated: false)
+            } else if addedCategoryIndex == 2 * limitOfSegments || addedCategoryIndex == 2 * limitOfSegments + 1 {
+                // reset segment title if index is 0 or 1 in SegmentedControl 3
+                categorySegmentedControl3.isEnabled = true // Enable SegmentedControl 3
+                // disable segment 1 if SegmentedControl3 has only segment 0
+                categorySegmentedControl3.setEnabled((addedCategoryIndex == 2 * limitOfSegments + 1), forSegmentAt: 1)
+                categorySegmentedControl3.setTitle(taskCategories[addedCategoryIndex], forSegmentAt: addedCategoryIndex - 2 * limitOfSegments)
             }
         }
     }
