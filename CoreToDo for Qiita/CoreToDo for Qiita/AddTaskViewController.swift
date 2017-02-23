@@ -19,6 +19,7 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var categorySegmentedControl2: UISegmentedControl!
     @IBOutlet weak var categorySegmentedControl3: UISegmentedControl!
     @IBOutlet weak var categoryTextField: UITextField!
+    @IBOutlet weak var addTaskButton: UIButton!
     @IBOutlet weak var deleteCategoryButton: UIButton!
     @IBOutlet weak var addCategoryButton: UIButton!
     
@@ -99,8 +100,11 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        // hide keyboard
-        textField.resignFirstResponder()
+        if textField == taskTextField {
+            plusButtonTapped(addTaskButton)
+        } else if textField == categoryTextField {
+            addNewCategory(addCategoryButton)
+        }
         
         return true
     }
