@@ -238,4 +238,12 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate {
         dismiss(animated: true, completion: nil)
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if taskTextField.isFirstResponder {
+            taskTextField.resignFirstResponder()
+        }
+        if categoryTextField.isFirstResponder {
+            categoryTextField.resignFirstResponder()
+        }
+    }
 }
