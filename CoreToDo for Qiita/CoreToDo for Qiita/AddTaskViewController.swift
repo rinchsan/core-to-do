@@ -173,8 +173,8 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate {
         }
         
         // alert if you have too much categories
-        if taskCategories.count >= 2 * limitOfSegments {
-            let alert = UIAlertController(title: "You cannot add category anymore.", message: "aaa", preferredStyle: UIAlertControllerStyle.alert)
+        if taskCategories.count >= 3 * limitOfSegments {
+            let alert = UIAlertController(title: "You cannot add category anymore.", message: nil, preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { (action) in
                 alert.dismiss(animated: true, completion: nil)
             }))
