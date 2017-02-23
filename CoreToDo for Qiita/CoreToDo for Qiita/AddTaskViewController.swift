@@ -146,7 +146,7 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func cancelButtonTapped(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+        dismissWithKeyboard()
     }
     
     @IBAction func plusButtonTapped(_ sender: Any) {
@@ -168,7 +168,7 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate {
         
         (UIApplication.shared.delegate as! AppDelegate).saveContext()
         
-        dismiss(animated: true, completion: nil)
+        dismissWithKeyboard()
     }
     
     @IBAction func addNewCategory(_ sender: Any) {
@@ -191,7 +191,7 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate {
             
             (UIApplication.shared.delegate as! AppDelegate).saveContext()
             
-            dismiss(animated: true, completion: nil)
+            dismissWithKeyboard()
         }
     }
     
@@ -225,6 +225,11 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate {
         
         (UIApplication.shared.delegate as! AppDelegate).saveContext()
         
+        dismissWithKeyboard()
+    }
+    
+    func dismissWithKeyboard() {
+        taskTextField.resignFirstResponder()
         dismiss(animated: true, completion: nil)
     }
     
