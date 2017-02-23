@@ -229,8 +229,12 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate {
     }
     
     func dismissWithKeyboard() {
-        taskTextField.resignFirstResponder()
-        categoryTextField.resignFirstResponder()
+        if taskTextField.isFirstResponder {
+            taskTextField.resignFirstResponder()
+        }
+        if categoryTextField.isFirstResponder {
+            categoryTextField.resignFirstResponder()
+        }
         dismiss(animated: true, completion: nil)
     }
     
