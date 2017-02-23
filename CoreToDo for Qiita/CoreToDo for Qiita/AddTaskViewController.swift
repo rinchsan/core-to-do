@@ -17,6 +17,7 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var taskTextField: UITextField!
     @IBOutlet weak var categorySegmentedControl: UISegmentedControl!
     @IBOutlet weak var categorySegmentedControl2: UISegmentedControl!
+    @IBOutlet weak var categorySegmentedControl3: UISegmentedControl!
     @IBOutlet weak var categoryTextField: UITextField!
     @IBOutlet weak var deleteCategoryButton: UIButton!
     @IBOutlet weak var addCategoryButton: UIButton!
