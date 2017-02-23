@@ -50,8 +50,11 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate {
             if let taskCategoryIndex = taskCategories.index(of: task.category!) {
                 if taskCategoryIndex < limitOfSegments {
                     categorySegmentedControl.selectedSegmentIndex = taskCategoryIndex
-                } else {
+                } else if taskCategoryIndex < 2 * limitOfSegments {
                     categorySegmentedControl2.selectedSegmentIndex = taskCategoryIndex - limitOfSegments
+                    categorySegmentedControl.selectedSegmentIndex = UISegmentedControlNoSegment
+                } else {
+                    categorySegmentedControl3.selectedSegmentIndex = taskCategoryIndex - 2 * limitOfSegments
                     categorySegmentedControl.selectedSegmentIndex = UISegmentedControlNoSegment
                 }
             } else {
