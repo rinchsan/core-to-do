@@ -83,7 +83,7 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate {
                 categorySegmentedControl2.setEnabled((addedCategoryIndex == limitOfSegments + 1), forSegmentAt: 1)
                 categorySegmentedControl2.setTitle(taskCategories[addedCategoryIndex], forSegmentAt: addedCategoryIndex - limitOfSegments)
             } else if addedCategoryIndex < 2 * limitOfSegments {
-                // insert into SegmentedControl 2 up to 2*limitOfSegments
+                // insert into SegmentedControl 2 up to limitOfSegments
                 categorySegmentedControl2.insertSegment(withTitle: taskCategories[addedCategoryIndex], at: addedCategoryIndex - limitOfSegments, animated: false)
             } else if addedCategoryIndex == 2 * limitOfSegments || addedCategoryIndex == 2 * limitOfSegments + 1 {
                 // reset segment title if index is 0 or 1 in SegmentedControl 3
@@ -91,6 +91,9 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate {
                 // disable segment 1 if SegmentedControl3 has only segment 0
                 categorySegmentedControl3.setEnabled((addedCategoryIndex == 2 * limitOfSegments + 1), forSegmentAt: 1)
                 categorySegmentedControl3.setTitle(taskCategories[addedCategoryIndex], forSegmentAt: addedCategoryIndex - 2 * limitOfSegments)
+            } else {
+                // insert into SegmentedControl 3 up to limitOfSegments
+                categorySegmentedControl3.insertSegment(withTitle: taskCategories[addedCategoryIndex], at: addedCategoryIndex - 2 * limitOfSegments, animated: false)
             }
         }
     }
@@ -117,6 +120,7 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate {
         
         // unselect category segmented control 2
         categorySegmentedControl2.selectedSegmentIndex = UISegmentedControlNoSegment
+        categorySegmentedControl3.selectedSegmentIndex = UISegmentedControlNoSegment
     }
     
     @IBAction func cateogryChosen2(_ sender: UISegmentedControl) {
@@ -127,6 +131,7 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate {
         
         // unselect category segmented control 1
         categorySegmentedControl.selectedSegmentIndex = UISegmentedControlNoSegment
+        categorySegmentedControl3.selectedSegmentIndex = UISegmentedControlNoSegment
     }
     
     @IBAction func categoryChosen3(_ sender: UISegmentedControl) {
