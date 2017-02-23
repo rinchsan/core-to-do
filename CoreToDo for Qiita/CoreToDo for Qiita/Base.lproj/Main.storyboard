@@ -152,6 +152,9 @@
                                     <segment title=""/>
                                 </segments>
                                 <color key="tintColor" red="0.93674510720000004" green="0.46438953360000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="categoryChosen3:" destination="zrB-ma-tjN" eventType="valueChanged" id="U2a-g0-7vj"/>
+                                </connections>
                             </segmentedControl>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter New Task" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="bxh-RF-AqY">
                                 <rect key="frame" x="16" y="324" width="343" height="30"/>

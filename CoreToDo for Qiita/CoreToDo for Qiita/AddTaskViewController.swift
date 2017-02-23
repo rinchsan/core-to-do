@@ -119,6 +119,17 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate {
         categorySegmentedControl.selectedSegmentIndex = UISegmentedControlNoSegment
     }
     
+    @IBAction func categoryChosen3(_ sender: UISegmentedControl) {
+        deleteCategoryButton.isEnabled = true
+        
+        // choose category of task
+        taskCategory = taskCategories[sender.selectedSegmentIndex + 2 * limitOfSegments]
+        
+        // unselect category segmented control 1 2
+        categorySegmentedControl.selectedSegmentIndex = UISegmentedControlNoSegment
+        categorySegmentedControl2.selectedSegmentIndex = UISegmentedControlNoSegment
+    }
+    
     @IBAction func cancelButtonTapped(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
