@@ -38,30 +38,12 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // set limitOfSegments compatible for view
         limitOfSegments = Int(addTaskView.frame.width / 80)
         
-        // configure category segmented control 1 2
         configureSegmentedControl()
         
-        // set information of selected task (got from segue)
         if let task = task {
-            taskTextField.text = task.name
-            taskCategory = task.category!
-            if let taskCategoryIndex = taskCategories.index(of: task.category!) {
-                if taskCategoryIndex < limitOfSegments {
-                    categorySegmentedControl.selectedSegmentIndex = taskCategoryIndex
-                } else if taskCategoryIndex < 2 * limitOfSegments {
-                    categorySegmentedControl2.selectedSegmentIndex = taskCategoryIndex - limitOfSegments
-                    categorySegmentedControl.selectedSegmentIndex = UISegmentedControlNoSegment
-                } else {
-                    categorySegmentedControl3.selectedSegmentIndex = taskCategoryIndex - 2 * limitOfSegments
-                    categorySegmentedControl.selectedSegmentIndex = UISegmentedControlNoSegment
-                }
-            } else {
-                categorySegmentedControl.selectedSegmentIndex = UISegmentedControlNoSegment
-            }
-            addCategoryButton.isEnabled = false
+            setEditedTask(task)
         }
         
         taskTextField.delegate = self
@@ -97,6 +79,25 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate {
                 categorySegmentedControl3.insertSegment(withTitle: taskCategories[addedCategoryIndex], at: addedCategoryIndex - 2 * limitOfSegments, animated: false)
             }
         }
+    }
+    
+    func setEditedTask(_ task: Task) {
+        taskTextField.text = task.name
+        taskCategory = task.category!
+        if let taskCategoryIndex = taskCategories.index(of: task.category!) {
+            if taskCategoryIndex < limitOfSegments {
+                categorySegmentedControl.selectedSegmentIndex = taskCategoryIndex
+            } else if taskCategoryIndex < 2 * limitOfSegments {
+                categorySegmentedControl2.selectedSegmentIndex = taskCategoryIndex - limitOfSegments
+                categorySegmentedControl.selectedSegmentIndex = UISegmentedControlNoSegment
+            } else {
+                categorySegmentedControl3.selectedSegmentIndex = taskCategoryIndex - 2 * limitOfSegments
+                categorySegmentedControl.selectedSegmentIndex = UISegmentedControlNoSegment
+            }
+        } else {
+            categorySegmentedControl.selectedSegmentIndex = UISegmentedControlNoSegment
+        }
+        addCategoryButton.isEnabled = false
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
