@@ -46,6 +46,10 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate {
             setEditedTask(task)
         }
         
+        let downSwipe = UISwipeGestureRecognizer(target: self, action: #selector(self.cancelButtonTapped(_:)))
+        downSwipe.direction = .down
+        self.view.addGestureRecognizer(downSwipe)
+        
         taskTextField.delegate = self
         categoryTextField.delegate = self
     }
