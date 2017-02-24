@@ -52,6 +52,8 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate {
         
         taskTextField.delegate = self
         categoryTextField.delegate = self
+        
+        taskTextField.becomeFirstResponder()
     }
     
     // MARK: -
