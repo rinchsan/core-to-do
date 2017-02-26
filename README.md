@@ -7,11 +7,9 @@ iOSアプリ開発の練習として作成したToDoアプリです。
 ## 仕様
 
 ### 環境
-データ保存にはCoreDataを使用しています。
-
-環境はSwift3/Xcode8です。
-
-AutoLayoutを使用しています。
+- データ保存にはCoreDataを使用しています。
+- 環境はSwift3/Xcode8です。
+- AutoLayoutを使用しています。
 
 ### 使い方
 
