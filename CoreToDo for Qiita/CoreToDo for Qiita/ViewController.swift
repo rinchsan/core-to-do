@@ -18,9 +18,13 @@ let firstNumberOfTaskCategories = taskCategories.count
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    // MARK: - Properties
+    // MARK: - Outlets
 
     @IBOutlet weak var taskTableView: UITableView!
+    @IBOutlet weak var editButton: UIBarButtonItem!
+    
+    // MARK: - Properties
+    
     let estimatedRowHeight: CGFloat = 40.0
     
     // MARK: -
@@ -199,6 +203,17 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
         // delete table view cell with animation
         taskTableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
+    }
+    
+    @IBAction func edit(_ sender: Any) {
+        taskTableView.setEditing(!taskTableView.isEditing, animated: true)
+        
+        switch taskTableView.isEditing {
+        case true:
+            editButton.title = "done"
+        default:
+            editButton.title = "edit"
+        }
     }
     
 }
