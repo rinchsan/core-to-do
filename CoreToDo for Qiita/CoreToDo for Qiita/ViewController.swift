@@ -216,5 +216,17 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
     }
     
+    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let category = taskCategories[sourceIndexPath.section]
+        if let item = tasksToShow[category]?[sourceIndexPath.row] {
+            tasksToShow[category]?.remove(at: sourceIndexPath.row)
+            tasksToShow[category]?.insert(item, at: destinationIndexPath.row)
+        }
+    }
+    
 }
 
