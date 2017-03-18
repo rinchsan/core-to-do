@@ -20,8 +20,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     // MARK: - Properties
 
-    @IBOutlet weak var plusButton: UIButton!
-    @IBOutlet weak var taskTableView: UITableView!
+    @IBOutlet private weak var plusButton: UIButton!
+    @IBOutlet private weak var taskTableView: UITableView!
     let estimatedRowHeight: CGFloat = 40.0
     
     // MARK: -
