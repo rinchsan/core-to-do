@@ -177,7 +177,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
 
     func tableView(_ tableView: UITableView, willBeginEditingRowAt indexPath: IndexPath) {
-        self.plusButton.isHidden = true
+        UIView.animate(withDuration: 0.3) {
+            self.plusButton.alpha = 0.0
+        }
     }
 
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
@@ -207,7 +209,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
 
     func tableView(_ tableView: UITableView, didEndEditingRowAt indexPath: IndexPath?) {
-        self.plusButton.isHidden = false
+        UIView.animate(withDuration: 0.3) {
+            self.plusButton.alpha = 1.0
+        }
     }
     
 }
