@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import UserNotifications
 
 class AddTaskViewController: UIViewController, UITextFieldDelegate {
     
@@ -187,6 +188,7 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate {
             task.category = taskCategory
             if notificationEnabled {
                 task.notifiedAt = notificationDatePicker.date as NSDate?
+                setNotification(task)
             } else {
                 task.notifiedAt = nil
             }
@@ -195,6 +197,20 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate {
         (UIApplication.shared.delegate as! AppDelegate).saveContext()
         
         dismissWithKeyboard()
+    }
+
+    func setNotification(_ task: Task) {
+        let content = UNMutableNotificationContent()
+        content.title = task.category ?? "Reminder"
+        content.body = task.name ?? "We have reminder for you."
+        content.sound = UNNotificationSound.default()
+        let trigger = UNTimeIntervalNotificationTrigger.init(timeInterval: 3, repeats: false)
+        let request = UNNotificationRequest(identifier: task.name ?? "Reminder", content: content, trigger: trigger)
+        UNUserNotificationCenter.current().add(request) { error in
+            if let error = error {
+                print(error)
+            }
+        }
     }
     
     @IBAction func addNewCategory(_ sender: Any) {
