@@ -233,6 +233,7 @@
                                 <date key="date" timeIntervalSinceReferenceDate="511542551.95425302">
                                     <!--2017-03-18 15:09:11 +0000-->
                                 </date>
+                                <locale key="locale" localeIdentifier="ja_JP"/>
                             </datePicker>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.99182273649999997" blue="0.71245613019999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
