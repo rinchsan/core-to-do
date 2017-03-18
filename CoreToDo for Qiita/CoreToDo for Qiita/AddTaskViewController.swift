@@ -59,6 +59,15 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate {
         categoryTextField.delegate = self
         
         taskTextField.becomeFirstResponder()
+
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { (granted, error) in
+            if granted {
+                print("granted")
+            }
+            if let error = error {
+                print(error)
+            }
+        }
     }
     
     // MARK: -
