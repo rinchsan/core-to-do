@@ -29,6 +29,7 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate {
     
     var taskCategory = "ToDo"
     var limitOfSegments: Int!
+    var notificationEnabled = false
     
     // MARK: -
     
@@ -56,6 +57,8 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate {
         categoryTextField.delegate = self
         
         taskTextField.becomeFirstResponder()
+
+        notificationDatePickerHeight.constant = 0.0
     }
     
     // MARK: -
@@ -261,6 +264,14 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate {
     }
 
     @IBAction func alarmButtonTapped(_ sender: UIButton) {
+        notificationEnabled = !notificationEnabled
+        if notificationEnabled {
+            alarmButton.setImage(#imageLiteral(resourceName: "bell_on"), for: .normal)
+            notificationDatePickerHeight.constant = 137.0
+        } else {
+            alarmButton.setImage(#imageLiteral(resourceName: "bell_off"), for: .normal)
+            notificationDatePickerHeight.constant = 0.0
+        }
     }
     
 }
