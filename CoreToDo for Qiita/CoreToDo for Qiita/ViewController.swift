@@ -20,7 +20,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     // MARK: - Properties
 
-    @IBOutlet weak var taskTableView: UITableView!
+    @IBOutlet private weak var plusButton: UIButton!
+    @IBOutlet private weak var taskTableView: UITableView!
     let estimatedRowHeight: CGFloat = 40.0
     
     // MARK: -
@@ -174,7 +175,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         return cell
     }
-    
+
+    func tableView(_ tableView: UITableView, willBeginEditingRowAt indexPath: IndexPath) {
+        UIView.animate(withDuration: 0.3) {
+            self.plusButton.alpha = 0.0
+        }
+    }
+
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         
@@ -199,6 +206,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
         // delete table view cell with animation
         taskTableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
+    }
+
+    func tableView(_ tableView: UITableView, didEndEditingRowAt indexPath: IndexPath?) {
+        UIView.animate(withDuration: 0.3) {
+            self.plusButton.alpha = 1.0
+        }
     }
     
 }
