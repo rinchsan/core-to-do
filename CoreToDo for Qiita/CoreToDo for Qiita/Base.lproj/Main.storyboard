@@ -225,7 +225,7 @@
                                     <action selector="alarmButtonTapped:" destination="zrB-ma-tjN" eventType="touchUpInside" id="Nyu-rW-5BS"/>
                                 </connections>
                             </button>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="94P-ML-h2p">
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="10" translatesAutoresizingMaskIntoConstraints="NO" id="94P-ML-h2p">
                                 <rect key="frame" x="0.0" y="272" width="375" height="0.0"/>
                                 <constraints>
                                     <constraint firstAttribute="height" id="HrJ-ox-hhi"/>
