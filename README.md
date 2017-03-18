@@ -1,39 +1,31 @@
-# CoreToDo
+# ToDo
 
-## 概要
+ToDo App powered by Core Data
 
-iOSアプリ開発の練習として作成したToDoアプリです。
+## Description
 
-## 仕様
+This is Task Management App powered by Core Data.
+You can create any Task Category.
+You can receive reminder if you like.
 
-### 環境
-- データ保存にはCoreDataを使用しています。
-- 環境はSwift3/Xcode8です。
-- AutoLayoutを使用しています。
+## Features
 
-### 使い方
+- Create any category you want
+- Receive reminder
 
-#### 最初の画面
+## Usage
 
-- アプリを起動するとカテゴリごとのタスクが一覧表示されます。
-- 右下のプラスボタンを押すと、「次の画面」へ遷移します。
-- タスク一覧からタスクをスワイプすると削除できます。
-- タスク一覧からタスクをタップすると、「次の画面」へ遷移し、そのタスクの編集ができます。
+1. You can add task by tapping plus button at the bottom of the screen.
+2. You can delete task by swiping to the left.
+3. You can edit task by tapping it.
+4. You can create category by tapping the same button as creating task.
+5. You can delete category by tapping trash-can button at the bottom of the screen you can go to by tapping plus button.
+6. You can receive reminder if you tap bell-button and set notification date you want.
 
-#### 次の画面
+## Installation
 
-- タスク入力とカテゴリ選択後1つ目のプラスボタンを押すとタスクが追加されます。
-- 2つ目の入力欄に追加したいカテゴリを入力してから2つ目のプラスボタンを押すと新しいカテゴリが追加されます。
-- "ToDo"、"Shopping"以外のカテゴリを選択し、ゴミ箱ボタンを押すとそのカテゴリを削除できます。
-- タスク編集時はカテゴリ追加ができません。
+    $ git clone https://github.com/MasayaHayashi724/CoreToDo.git
 
-## 作り方
-作り方の手順をチュートリアルとして[Qiita](http://qiita.com/MasayaHayashi724/items/0d27f4abf7b14c72107f)で公開しています。
+## Author
 
-公開後に実装した機能については機能説明のみを追記しているので、具体的なコーディングは解説していません。
-
-何かありましたらお気軽にコメントください。
-
-## Icons
-
-- Nortification Bell icons by Beau Wingfield
+[MasayaHayashi724](https://github.com/MasayaHayashi724)
