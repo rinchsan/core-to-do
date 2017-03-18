@@ -8,25 +8,30 @@
 
 import UIKit
 import CoreData
+import UserNotifications
 
 class AddTaskViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: - Properties
     
-    @IBOutlet var addTaskView: UIView!
-    @IBOutlet weak var taskTextField: UITextField!
-    @IBOutlet weak var categorySegmentedControl: UISegmentedControl!
-    @IBOutlet weak var categorySegmentedControl2: UISegmentedControl!
-    @IBOutlet weak var categorySegmentedControl3: UISegmentedControl!
-    @IBOutlet weak var categoryTextField: UITextField!
-    @IBOutlet weak var addTaskButton: UIButton!
-    @IBOutlet weak var deleteCategoryButton: UIButton!
-    @IBOutlet weak var addCategoryButton: UIButton!
+    @IBOutlet private var addTaskView: UIView!
+    @IBOutlet private weak var taskTextField: UITextField!
+    @IBOutlet private weak var categorySegmentedControl: UISegmentedControl!
+    @IBOutlet private weak var categorySegmentedControl2: UISegmentedControl!
+    @IBOutlet private weak var categorySegmentedControl3: UISegmentedControl!
+    @IBOutlet private weak var categoryTextField: UITextField!
+    @IBOutlet private weak var addTaskButton: UIButton!
+    @IBOutlet private weak var deleteCategoryButton: UIButton!
+    @IBOutlet private weak var addCategoryButton: UIButton!
+    @IBOutlet private weak var notificationDatePicker: UIDatePicker!
+    @IBOutlet private weak var notificationDatePickerHeight: NSLayoutConstraint!
+    @IBOutlet weak var alarmButton: UIButton!
     
     // MARK: -
     
     var taskCategory = "ToDo"
     var limitOfSegments: Int!
+    var notificationEnabled = false
     
     // MARK: -
     
@@ -54,6 +59,15 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate {
         categoryTextField.delegate = self
         
         taskTextField.becomeFirstResponder()
+
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { (granted, error) in
+            if granted {
+                print("granted")
+            }
+            if let error = error {
+                print(error)
+            }
+        }
     }
     
     // MARK: -
@@ -104,6 +118,12 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate {
             categorySegmentedControl.selectedSegmentIndex = UISegmentedControlNoSegment
         }
         addCategoryButton.isEnabled = false
+        if let notifiedDate = task.notifiedAt {
+            alarmButton.setImage(#imageLiteral(resourceName: "bell_on"), for: .normal)
+            notificationEnabled = true
+            notificationDatePickerHeight.constant = 137.0
+            notificationDatePicker.setDate(notifiedDate as Date, animated: false)
+        }
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -175,11 +195,37 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate {
         if let task = task {
             task.name = taskTextField.text
             task.category = taskCategory
+            if notificationEnabled {
+                task.notifiedAt = notificationDatePicker.date as NSDate?
+                setNotification(task)
+            } else {
+                task.notifiedAt = nil
+                removeNotification(task)
+            }
         }
         
         (UIApplication.shared.delegate as! AppDelegate).saveContext()
         
         dismissWithKeyboard()
+    }
+
+    func setNotification(_ task: Task) {
+        let content = UNMutableNotificationContent()
+        content.title = task.category ?? "Reminder"
+        content.body = task.name ?? "We have reminder for you."
+        content.sound = UNNotificationSound.default()
+        let notifiedDateComps = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: task.notifiedAt as! Date)
+        let trigger = UNCalendarNotificationTrigger.init(dateMatching: notifiedDateComps, repeats: false)
+        let request = UNNotificationRequest(identifier: task.name ?? "Reminder", content: content, trigger: trigger)
+        UNUserNotificationCenter.current().add(request) { error in
+            if let error = error {
+                print(error)
+            }
+        }
+    }
+
+    func removeNotification(_ task: Task) {
+        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [task.name ?? "Reminder"])
     }
     
     @IBAction func addNewCategory(_ sender: Any) {
@@ -257,4 +303,19 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate {
             categoryTextField.resignFirstResponder()
         }
     }
+
+    @IBAction func alarmButtonTapped(_ sender: UIButton) {
+        notificationEnabled = !notificationEnabled
+        if notificationEnabled {
+            alarmButton.setImage(#imageLiteral(resourceName: "bell_on"), for: .normal)
+            self.notificationDatePickerHeight.constant = 137.0
+            UIView.animate(withDuration: 0.3, animations: {
+                self.view.layoutIfNeeded()
+            })
+        } else {
+            alarmButton.setImage(#imageLiteral(resourceName: "bell_off"), for: .normal)
+            self.notificationDatePickerHeight.constant = 0.0
+        }
+    }
+    
 }
