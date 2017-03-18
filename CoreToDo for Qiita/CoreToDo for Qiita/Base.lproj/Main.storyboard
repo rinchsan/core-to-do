@@ -30,7 +30,7 @@
                                         <rect key="frame" x="0.0" y="28" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mQN-1y-SI7" id="UJI-7T-Jfj">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XxJ-Uz-f9c">
@@ -77,6 +77,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="plusButton" destination="eIv-bB-nMl" id="sYZ-TC-7HZ"/>
                         <outlet property="taskTableView" destination="TE9-ta-w8B" id="XzC-ca-E6B"/>
                     </connections>
                 </viewController>
@@ -268,7 +269,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ymz-tn-q15" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="888.79999999999995" y="53.523238380809602"/>
+            <point key="canvasLocation" x="918" y="139"/>
         </scene>
     </scenes>
     <resources>
