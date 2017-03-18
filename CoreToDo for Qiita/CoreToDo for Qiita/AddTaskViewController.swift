@@ -13,15 +13,17 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: - Properties
     
-    @IBOutlet var addTaskView: UIView!
-    @IBOutlet weak var taskTextField: UITextField!
-    @IBOutlet weak var categorySegmentedControl: UISegmentedControl!
-    @IBOutlet weak var categorySegmentedControl2: UISegmentedControl!
-    @IBOutlet weak var categorySegmentedControl3: UISegmentedControl!
-    @IBOutlet weak var categoryTextField: UITextField!
-    @IBOutlet weak var addTaskButton: UIButton!
-    @IBOutlet weak var deleteCategoryButton: UIButton!
-    @IBOutlet weak var addCategoryButton: UIButton!
+    @IBOutlet private var addTaskView: UIView!
+    @IBOutlet private weak var taskTextField: UITextField!
+    @IBOutlet private weak var categorySegmentedControl: UISegmentedControl!
+    @IBOutlet private weak var categorySegmentedControl2: UISegmentedControl!
+    @IBOutlet private weak var categorySegmentedControl3: UISegmentedControl!
+    @IBOutlet private weak var categoryTextField: UITextField!
+    @IBOutlet private weak var addTaskButton: UIButton!
+    @IBOutlet private weak var deleteCategoryButton: UIButton!
+    @IBOutlet private weak var addCategoryButton: UIButton!
+    @IBOutlet private weak var notificationDatePickerHeight: NSLayoutConstraint!
+    @IBOutlet weak var alarmButton: UIButton!
     
     // MARK: -
     
@@ -257,4 +259,8 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate {
             categoryTextField.resignFirstResponder()
         }
     }
+
+    @IBAction func alarmButtonTapped(_ sender: UIButton) {
+    }
+    
 }

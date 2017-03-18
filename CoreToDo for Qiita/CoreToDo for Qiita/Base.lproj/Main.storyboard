@@ -221,6 +221,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="03h-1g-KIm">
                                 <rect key="frame" x="243" y="224" width="40" height="40"/>
                                 <state key="normal" image="bell_off"/>
+                                <connections>
+                                    <action selector="alarmButtonTapped:" destination="zrB-ma-tjN" eventType="touchUpInside" id="Nyu-rW-5BS"/>
+                                </connections>
                             </button>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="94P-ML-h2p">
                                 <rect key="frame" x="0.0" y="272" width="375" height="137"/>
@@ -279,6 +282,7 @@
                         <outlet property="addCategoryButton" destination="Mo6-xd-DH9" id="g7F-kx-bno"/>
                         <outlet property="addTaskButton" destination="lbc-fi-qEZ" id="LPM-8p-PyG"/>
                         <outlet property="addTaskView" destination="BuY-iv-fW0" id="km6-lc-FHo"/>
+                        <outlet property="alarmButton" destination="03h-1g-KIm" id="Yx1-PB-Wxx"/>
                         <outlet property="categorySegmentedControl" destination="rya-0K-2X6" id="58r-aJ-cZ9"/>
                         <outlet property="categorySegmentedControl2" destination="VwN-wb-VTf" id="oFM-4P-dFF"/>
                         <outlet property="categorySegmentedControl3" destination="Ref-x6-R87" id="nEV-eq-O9V"/>
