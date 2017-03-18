@@ -22,6 +22,7 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet private weak var addTaskButton: UIButton!
     @IBOutlet private weak var deleteCategoryButton: UIButton!
     @IBOutlet private weak var addCategoryButton: UIButton!
+    @IBOutlet private weak var notificationDatePicker: UIDatePicker!
     @IBOutlet private weak var notificationDatePickerHeight: NSLayoutConstraint!
     @IBOutlet weak var alarmButton: UIButton!
     
@@ -180,6 +181,10 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate {
         if let task = task {
             task.name = taskTextField.text
             task.category = taskCategory
+            if notificationEnabled {
+                task.notifiedAt = notificationDatePicker.date as NSDate?
+                print(notificationDatePicker.date)
+            }
         }
         
         (UIApplication.shared.delegate as! AppDelegate).saveContext()
@@ -267,10 +272,13 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate {
         notificationEnabled = !notificationEnabled
         if notificationEnabled {
             alarmButton.setImage(#imageLiteral(resourceName: "bell_on"), for: .normal)
-            notificationDatePickerHeight.constant = 137.0
+            self.notificationDatePickerHeight.constant = 137.0
+            UIView.animate(withDuration: 0.3, animations: {
+                self.view.layoutIfNeeded()
+            })
         } else {
             alarmButton.setImage(#imageLiteral(resourceName: "bell_off"), for: .normal)
-            notificationDatePickerHeight.constant = 0.0
+            self.notificationDatePickerHeight.constant = 0.0
         }
     }
     

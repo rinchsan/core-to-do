@@ -288,6 +288,7 @@
                         <outlet property="categorySegmentedControl3" destination="Ref-x6-R87" id="nEV-eq-O9V"/>
                         <outlet property="categoryTextField" destination="bxh-RF-AqY" id="Z7u-YP-T8I"/>
                         <outlet property="deleteCategoryButton" destination="Lsg-5J-D5z" id="2rx-K3-vbU"/>
+                        <outlet property="notificationDatePicker" destination="94P-ML-h2p" id="dA6-wE-ZCD"/>
                         <outlet property="notificationDatePickerHeight" destination="HrJ-ox-hhi" id="jMo-4Z-seC"/>
                         <outlet property="taskTextField" destination="x8a-CC-pPf" id="eFc-tI-cn9"/>
                     </connections>
