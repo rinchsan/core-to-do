@@ -58,8 +58,6 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate {
         categoryTextField.delegate = self
         
         taskTextField.becomeFirstResponder()
-
-        notificationDatePickerHeight.constant = 0.0
     }
     
     // MARK: -
@@ -110,6 +108,12 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate {
             categorySegmentedControl.selectedSegmentIndex = UISegmentedControlNoSegment
         }
         addCategoryButton.isEnabled = false
+        if let notifiedDate = task.notifiedAt {
+            alarmButton.setImage(#imageLiteral(resourceName: "bell_on"), for: .normal)
+            notificationEnabled = true
+            notificationDatePickerHeight.constant = 137.0
+            notificationDatePicker.setDate(notifiedDate as Date, animated: false)
+        }
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -183,7 +187,8 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate {
             task.category = taskCategory
             if notificationEnabled {
                 task.notifiedAt = notificationDatePicker.date as NSDate?
-                print(notificationDatePicker.date)
+            } else {
+                task.notifiedAt = nil
             }
         }
         
