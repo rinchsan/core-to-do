@@ -200,6 +200,7 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate {
                 setNotification(task)
             } else {
                 task.notifiedAt = nil
+                removeNotification(task)
             }
         }
         
@@ -223,6 +224,10 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate {
         }
     }
 
+    func removeNotification(_ task: Task) {
+        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [task.name ?? "Reminder"])
+    }
+    
     @IBAction func addNewCategory(_ sender: Any) {
         // dismiss if no category is input
         if categoryTextField.text == "" {
