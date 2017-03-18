@@ -171,7 +171,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add New Category" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nJS-KX-2M7">
-                                <rect key="frame" x="16" y="417" width="343" height="40"/>
+                                <rect key="frame" x="16" y="280" width="343" height="40"/>
                                 <color key="backgroundColor" red="1" green="0.84183681420000001" blue="0.001031347811" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="DEH-M7-arC"/>
@@ -181,13 +181,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter New Category" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="bxh-RF-AqY">
-                                <rect key="frame" x="16" y="467" width="343" height="30"/>
+                                <rect key="frame" x="16" y="330" width="343" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mo6-xd-DH9">
-                                <rect key="frame" x="303" y="507" width="40" height="40"/>
+                                <rect key="frame" x="303" y="370" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Qjc-wl-FDi"/>
                                     <constraint firstAttribute="width" constant="40" id="dbF-9a-myF"/>
@@ -198,7 +198,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delete Selected Category" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="om5-pr-uLc">
-                                <rect key="frame" x="16" y="557" width="343" height="40"/>
+                                <rect key="frame" x="16" y="420" width="343" height="40"/>
                                 <color key="backgroundColor" red="1" green="0.84183681420000001" blue="0.001031347811" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="sLy-vp-IIH"/>
@@ -208,7 +208,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lsg-5J-D5z">
-                                <rect key="frame" x="303" y="607" width="40" height="40"/>
+                                <rect key="frame" x="303" y="470" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="Kkn-pe-TPk"/>
                                     <constraint firstAttribute="height" constant="40" id="UGR-sD-lul"/>
@@ -226,9 +226,9 @@
                                 </connections>
                             </button>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="94P-ML-h2p">
-                                <rect key="frame" x="0.0" y="272" width="375" height="137"/>
+                                <rect key="frame" x="0.0" y="272" width="375" height="0.0"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="137" id="HrJ-ox-hhi"/>
+                                    <constraint firstAttribute="height" id="HrJ-ox-hhi"/>
                                 </constraints>
                                 <date key="date" timeIntervalSinceReferenceDate="511542551.95425302">
                                     <!--2017-03-18 15:09:11 +0000-->
