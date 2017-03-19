@@ -28,4 +28,5 @@ You can receive reminder if you like.
 
 ## Author
 
-[MasayaHayashi724](https://github.com/MasayaHayashi724)
+- [MasayaHayashi724](https://github.com/MasayaHayashi724)
+- Bell icons by [Beau Wingfield](https://thenounproject.com/beauingfield/)
