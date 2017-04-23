@@ -214,7 +214,7 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate {
         content.title = task.category ?? "Reminder"
         content.body = task.name ?? "We have reminder for you."
         content.sound = UNNotificationSound.default()
-        let notifiedDateComps = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: task.notifiedAt as! Date)
+        let notifiedDateComps = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: task.notifiedAt! as Date)
         let trigger = UNCalendarNotificationTrigger.init(dateMatching: notifiedDateComps, repeats: false)
         let request = UNNotificationRequest(identifier: task.name ?? "Reminder", content: content, trigger: trigger)
         UNUserNotificationCenter.current().add(request) { error in
