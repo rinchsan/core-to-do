@@ -2,6 +2,8 @@
 
 ToDo App powered by Core Data
 
+See also https://qiita.com/snowman_mh/items/0d27f4abf7b14c72107f.
+
 ## Description
 
 This is Task Management App powered by Core Data.
